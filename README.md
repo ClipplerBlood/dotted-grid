@@ -1,5 +1,4 @@
 
-<h1 align="center">Dotted Grid</h1>
 <p align="center">
   <img src=".github/images/logo.png">
 </p>
@@ -20,7 +19,7 @@ When editing a scene, select the "Dotted" grid type and that's it!
 
 ### Extra features
 - The dots are antialiased to prevent jagged edges. The antialiasing quality depends on the client Performance Mode
-(customizable in the core foundry settings), so it can run with high quality on powerful machines and smoothly even on potato PCs and .
+(customizable in the core foundry settings), so it can run with high quality on powerful machines and smoothly even on potato PCs.
 - If you wish to edit the dots size, you can use a script macro with `game.dottedGrid.setRadius(<radius>)`. For example `game.dottedGrid.setRadius(3)` is the default value.
 
 ## License
