@@ -10,7 +10,7 @@ Hooks.once('init', async () => {
   // Handle the fetching of the Grid implementation. We check if the current scene has a dotted flag and is square
   const baseGrid_implementationFor = BaseGrid.implementationFor;
   BaseGrid.implementationFor = function (gridType) {
-    if (gridType === CONST.GRID_TYPES.SQUARE && game.canvas.scene.getFlag('dotted-grid', 'isDotted')) return DottedGrid;
+    if (gridType === CONST.GRID_TYPES.SQUARE && canvas?.scene?.getFlag('dotted-grid', 'isDotted')) return DottedGrid;
     return baseGrid_implementationFor(gridType);
   };
 
@@ -40,7 +40,7 @@ Hooks.once('init', async () => {
 
     // If we are setting a dotted grid, add a flag (or remove it otherwise)
     // Also force re-rendering of the grid when switching between dotted and not (required due to grid.type not changing)
-    const isCurrentlyDotted = this.document.getFlag('dotted-grid', 'isDotted');
+    const isCurrentlyDotted = this.document?.getFlag('dotted-grid', 'isDotted');
     if (gridType === DOTTED) {
       await this.document.setFlag('dotted-grid', 'isDotted', true);
       if (!isCurrentlyDotted && canvas.scene === this.document) return canvas.draw();
@@ -136,7 +136,7 @@ class DottedGrid extends SquareGrid {
  * Inject the "Dotted" selection if the grid being configured has the flag
  */
 Hooks.on('renderSceneConfig', (sceneConfig, element, options) => {
-  if (!options.document.getFlag('dotted-grid', 'isDotted')) return;
+  if (!options.document?.getFlag('dotted-grid', 'isDotted')) return;
   const select = element.find('select[name="grid.type"]');
   select.val(DOTTED);
 });
